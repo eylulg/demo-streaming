@@ -1,0 +1,43 @@
+.Footer {
+  width: 100vw;
+  height: 23vh;
+  margin-right: 2%;
+  background-color: #212121;
+}
+
+.Footer-Top {
+  justify-content: space-between;
+  display: flex;
+  max-width: 100%;
+  height: 15%;
+  padding-left: 2%;
+  padding-right: 50%;
+  padding-top: 1%;
+  align-items: center;
+  color: white;
+}
+
+.Footer-Bottom {
+  height: 15%;
+  color: white;
+  padding-left: 2%;
+  padding-top: 3%;
+}
+
+.Icons {
+  padding-top: 1%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Logos {
+  width: 10%;
+  padding-left: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Badges {
+  width: auto;
+}

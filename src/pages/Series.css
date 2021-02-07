@@ -1,0 +1,24 @@
+.Series-Container {
+  display: flex;
+  flex: 1;
+  height: 62vh;
+  width: 100vw;
+  flex-direction: column;
+}
+
+.Bar-Container {
+  height: 15%;
+  width: 100%;
+  display: flex;
+}
+
+.Screen-Display {
+  height: 85%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+}
+
+.Height {
+  height: 50%;
+}
