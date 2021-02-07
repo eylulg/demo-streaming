@@ -4,22 +4,25 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Home from "./components/Home";
-import Series from "./components/Series";
-import Movies from "./components/Movies";
-import Error from "./components/Error";
+import Home from "./pages/Home";
+import Series from "./pages/Series";
+import Movies from "./pages/Movies";
+import Error from "./pages/Error";
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 import "./App.css"
 
 const App = () => {
   return (
     <div>
-      <Link to="/">DEMO Streaming</Link>
+      <Header children={<Link to="/">DEMO Streaming</Link>} title={<span>"For NOW"</span>} />
       <Switch>
         <Route component={Home} path="/" exact />
         <Route component={Series} path="/series" />
         <Route component={Movies} path="/movies" />
         <Route component={Error} />
       </Switch>
+      <Footer />
     </div>
   );
 };
