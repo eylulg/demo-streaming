@@ -1,17 +1,17 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { apikey } from "../Api-key";
-import search from "../images/search.png";
+import searchImage from "../images/search.png";
 import Card from "../components/Card";
-import "./Series.css";
+import "./Movies-Series.css";
 
 const Series = () => {
   const [series, setSeries] = useState([]);
+  const [sortedSeries, setSortedSeries] = useState([]);
   const addNewSeries = (seriesData) => {
     setSeries((prevState) => [...prevState, seriesData]);
   };
   useEffect(() => {
-    console.log(series);
     if (series.length === 21) {
       sortSeries();
     }
@@ -46,29 +46,84 @@ const Series = () => {
       console.log(error);
     }
   };
+  const search = async (searchWord) => {
+    try {
+      const resp = await axios.get("https://api.themoviedb.org/3/search/tv/", {
+        params: {
+          api_key: apikey,
+          query: searchWord,
+        },
+      });
+      setSortedSeries(resp.data.results);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const sortSeries = () => {
-    series.sort((obj1, obj2) => obj1.name.localeCompare(obj2.name));
+    setSortedSeries(
+      series.sort((obj1, obj2) => obj1.name.localeCompare(obj2.name))
+    );
+  };
+  const filter = (data, type, ascending) => {
+    if (type === "year") {
+      data.sort(
+        (obj1, obj2) =>
+          parseInt(obj1.first_air_date) - parseInt(obj2.first_air_date)
+      );
+      if (ascending === true) {
+        return data;
+      } else {
+        return data.reverse();
+      }
+    } else {
+      data.sort((obj1, obj2) => obj1.name.localeCompare(obj2.name));
+      if (ascending === true) {
+        return data;
+      } else {
+        return data.reverse();
+      }
+    }
   };
   useEffect(() => {
     getSeries();
   }, []);
   const [{ searchInput }, setSearchInput] = useState("");
   return (
-    <div className="Series-Container">
+    <div className="Movies-Series-Container">
       <div className="Bar-Container">
         <input
           className="Height"
           type="text"
           value={searchInput}
-          onChange={(event) =>
-            setSearchInput({ searchInput: event.target.value })
-          }
+          onChange={(event) => {
+            setSearchInput({ searchInput: event.target.value });
+            if (event.target.value.length >= 3) {
+              search(event.target.value);
+            }
+          }}
           placeholder="Search..."
         />
         <button className="Height">
-          <img src={search}></img>
+          <img src={searchImage}></img>
         </button>
-        <select className="Height">
+        <select
+          className="Height"
+          onChange={(event) => {
+            if (event.target.value === "year-ascending") {
+              let temp = filter(sortedSeries, "year", true);
+              setSortedSeries([...temp]);
+            } else if (event.target.value === "year-descending") {
+              let temp = filter(sortedSeries, "year", false);
+              setSortedSeries([...temp]);
+            } else if (event.target.value === "title-ascending") {
+              let temp = filter(sortedSeries, "title", true);
+              setSortedSeries([...temp]);
+            } else if (event.target.value === "title-descending") {
+              let temp = filter(sortedSeries, "title", false);
+              setSortedSeries([...temp]);
+            }
+          }}
+        >
           <option value="year-ascending">Year in ascending order</option>
           <option value="year-descending">Year in descending order</option>
           <option selected value="title-ascending">
@@ -78,8 +133,8 @@ const Series = () => {
         </select>
       </div>
       <div className="Screen-Display">
-        {series.map((e, i) => {
-          return <Card u={e.poster_path} title={e.name} />;
+        {sortedSeries.map((object) => {
+          return <Card url={object.poster_path} title={object.name} />;
         })}
       </div>
     </div>

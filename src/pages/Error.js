@@ -1,7 +1,5 @@
 import "./Error.css";
 
-const Error = () => {
+export default function Error() {
   return <h1 className="Error-Container">Page not found!</h1>;
-};
-
-export default Error;
+}

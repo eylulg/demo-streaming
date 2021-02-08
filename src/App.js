@@ -17,7 +17,7 @@ const App = () => {
             DEMO Streaming
           </Link>
         }
-        title={<span>"For NOW"</span>}
+        title={<span>Popular Titles</span>}
       />
       <Switch>
         <Route component={Home} path="/" exact />

@@ -5,9 +5,18 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="Home-Container">
-      <img src={videoCamera}></img>
-      <Link to="/series">Populer Series</Link>
-      <Link to="/movies">Populer Movies</Link>
+      <div className="Image-Container">
+        <img className="Image-Camera" src={videoCamera}></img>
+        <Link className="Link-Style" to="/series">
+          SERIES
+        </Link>
+      </div>
+      <div className="Image-Container">
+        <img className="Image-Camera" src={videoCamera}></img>
+        <Link className="Link-Style" to="/movies">
+          MOVIES
+        </Link>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import "./Header.css";
 
-function Header({ children, title }) {
+export default function Header({ children, title }) {
   return (
     <div className="Header">
       <div className="Header-Container">
@@ -12,9 +12,7 @@ function Header({ children, title }) {
           <button className="Button">Start your free trial</button>
         </div>
       </div>
-      <div className="Title-Container">{title}</div>
+      <span className="Title-Container">{title}</span>
     </div>
   );
 }
-
-export default Header;

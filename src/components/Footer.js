@@ -6,7 +6,7 @@ import googlePlay from "../images/google-play.png";
 import microsoft from "../images/microsoft-badge.png";
 import "./Footer.css";
 
-function Footer() {
+export default function Footer() {
   return (
     <div className="Footer">
       <div className="Footer-Top">
@@ -52,5 +52,3 @@ function Footer() {
     </div>
   );
 }
-
-export default Footer;

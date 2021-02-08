@@ -3,5 +3,30 @@
   flex: 1;
   height: 62vh;
   width: 100vw;
-  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.Image-Container {
+  width: 100px;
+  height: 200px;
+  background-color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  margin-right: 5%;
+}
+
+.Link-Style {
+  font-size: 30px;
+  position: absolute;
+  color: white;
+  text-decoration: none;
+}
+
+.Image-Camera {
+  width: 70px;
+  height: 70px;
+  opacity: 0.5;
 }

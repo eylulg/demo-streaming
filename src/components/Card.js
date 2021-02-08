@@ -1,14 +1,18 @@
-function Card({ u, title }) {
-  const url = "https://image.tmdb.org/t/p/w500" + u;
+export default function Card({ url, title }) {
+  const u = "https://image.tmdb.org/t/p/w500" + url;
   return (
-    <div>
-      <img
-        style={{ height: "200px", width: "150px", backgroundColor: "#212121" }}
-        src={url}
-      ></img>
+    <div
+      style={{
+        height: "300px",
+        width: "200px",
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <img style={{ height: "200px", width: "150px" }} src={u}></img>
       <span>{title}</span>
     </div>
   );
 }
-
-export default Card;
