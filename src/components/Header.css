@@ -1,0 +1,43 @@
+.Header {
+  width: 100vw;
+  height: 15vh;
+  background-color: #3651a8;
+  display: flex;
+  flex-direction: column;
+}
+
+.Header-Container {
+  width: 100%;
+  height: 70%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.Title-Container {
+  max-width: 100%;
+  height: 30%;
+  background-color: #474747;
+  padding-left: 2%;
+}
+
+.Right-Side {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  align-items: center;
+}
+
+.Login {
+  color: white;
+  text-decoration: none;
+  margin-left: 8%;
+}
+
+.Button {
+  background-color: #474747;
+  color: white;
+  border-color: #474747;
+  margin-right: 8%;
+  padding: 3% 3%;
+}

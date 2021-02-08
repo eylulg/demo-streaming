@@ -1,0 +1,31 @@
+.Movies-Series-Container {
+  display: flex;
+  flex: 1;
+  height: 62vh;
+  width: 100vw;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.Bar-Container {
+  height: 15%;
+  width: 100%;
+  display: flex;
+}
+
+.Screen-Display {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex: 1;
+}
+
+.Height {
+  height: 5vh;
+  max-height: 5vh;
+  min-width: 50px;
+  padding: 0px;
+  margin: 0px;
+}
